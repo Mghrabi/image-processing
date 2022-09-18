@@ -1,0 +1,15 @@
+//Done
+
+
+
+
+
+
+//Tasks
+-creating 100100 as 200100
+-tests (jasmine and superTest)
+    -one test per endpoint
+    -one test for image prcessing 
+
+-fix
+    -fix Function type use in with next
