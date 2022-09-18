@@ -12,4 +12,5 @@
     -one test for image prcessing 
 
 -fix
+    -problem in resetting headers (problem)
     -fix Function type use in with next

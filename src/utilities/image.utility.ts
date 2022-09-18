@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
-export const checkOrCreateImageFile = (
+export const checkOrCreateImageFile =  (
   req: Express.Request,
   res: Express.Response,
   next: Function
@@ -31,7 +31,7 @@ export const checkOrCreateImageFile = (
     fs.appendFileSync(thumbPath, "");
     sharp(path.join(__dirname, '../../assets/original', fileName + ".jpg"))
       .resize(parseInt(width as string), parseInt(height as string))
-      .toFile(thumbPath, (err, info) => {
+      .toFile(thumbPath, (err) => {
         console.log("err in sharp", err);
         return res.send("Error while processing the iamge");
       });
