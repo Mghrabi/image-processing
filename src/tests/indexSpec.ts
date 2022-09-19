@@ -1,14 +1,13 @@
 import app from "..";
-import request from 'supertest'
+import request from "supertest";
 
+describe("endpoint GET / test", async () => {
 
-describe('GET /', function() {
-  it('response: ', async () => {
-    expect(25).toEqual(25)
-    const response = await request(app)
-      .get('/')
-      .query({fileName: 'ahmedHisham', width: 100, height: 100})
+  it("return status of 200: ", async () => {
+  const response = await request(app)
+    .get("/")
+    .query({ fileName: "fjord", width: 100, height: 100 });
     expect(response.status).toEqual(200);
   });
+  
 });
-

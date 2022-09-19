@@ -14,12 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const __1 = __importDefault(require(".."));
 const supertest_1 = __importDefault(require("supertest"));
-describe('GET /', function () {
-    it('response: ', () => __awaiter(this, void 0, void 0, function* () {
-        expect(25).toEqual(25);
+describe("endpoint GET / test", () => __awaiter(void 0, void 0, void 0, function* () {
+    it("return status of 200: ", () => __awaiter(void 0, void 0, void 0, function* () {
         const response = yield (0, supertest_1.default)(__1.default)
-            .get('/')
-            .query({ fileName: 'ahmedHisham', width: 100, height: 100 });
+            .get("/")
+            .query({ fileName: "fjord", width: 100, height: 100 });
+        expect(25).toEqual(25);
         expect(response.status).toEqual(200);
     }));
-});
+}));

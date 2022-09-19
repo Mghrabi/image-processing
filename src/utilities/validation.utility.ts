@@ -30,7 +30,7 @@ export const validateParamsFunc = (
       .status(400)
       .send("Error: Enter numbers in width and height parameters");
   }
-  next();
+  return next();
 };
 
 const validateFileName = (fileName: string): boolean => {
