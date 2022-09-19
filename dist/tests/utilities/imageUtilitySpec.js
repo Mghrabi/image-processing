@@ -12,13 +12,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const __1 = __importDefault(require(".."));
-const supertest_1 = __importDefault(require("supertest"));
-describe("endpoint GET / test", () => __awaiter(void 0, void 0, void 0, function* () {
-    it("return status of 200: ", () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield (0, supertest_1.default)(__1.default)
-            .get("/")
-            .query({ fileName: "fjord", width: 100, height: 100 });
-        expect(response.status).toEqual(200);
+const path_1 = __importDefault(require("path"));
+const imageUtility_1 = require("../../utilities/imageUtility");
+describe("image processing test", () => {
+    it("createImageFile func should return true", () => __awaiter(void 0, void 0, void 0, function* () {
+        const fileName = "fjord";
+        const width = "120";
+        const height = "120";
+        const thumbPath = path_1.default.join(__dirname, "../../../src/tests/assetsSpec/thumb", fileName +
+            parseInt(width) +
+            parseInt(height) +
+            ".jpg");
+        // console.log('thumbPath before', thumbPath)
+        const created = yield (0, imageUtility_1.createImageFile)(thumbPath, fileName, width, height);
+        expect(created).toEqual(true);
     }));
-}));
+});
