@@ -2,12 +2,10 @@ import Express from "express";
 import path from "path";
 import fs from "fs";
 
-
-
 export const validateParamsFunc = (
   req: Express.Request,
   res: Express.Response,
-  next: Function
+  next: () => void 
 ) => {
   const { fileName, width, height } = req.query;
   //checking their existance
@@ -46,6 +44,6 @@ const validateFileName = (fileName: string): boolean => {
     // console.log("File name exists");
     return true;
   }
-//   console.log("file name doesn't exist");
+  //   console.log("file name doesn't exist");
   return false;
 };

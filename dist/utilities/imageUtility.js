@@ -37,6 +37,7 @@ const checkOrCreateImageFile = (req, res, next) => __awaiter(void 0, void 0, voi
 exports.checkOrCreateImageFile = checkOrCreateImageFile;
 const createImageFile = (thumbPath, fileName, width, height) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        // console.log('thumbPath', thumbPath)
         fs_1.default.appendFileSync(thumbPath, "");
         yield (0, sharp_1.default)(path_1.default.join(__dirname, "../../assets/original", fileName + ".jpg"))
             .resize(parseInt(width), parseInt(height))

@@ -5,16 +5,7 @@
 
 
 
-//Tasks
--creating 100100 as 200100
--tests (jasmine and superTest)
-    -one test per endpoint
-    -one test for image prcessing 
 
 -fix
-    -problem in resetting headers (problem)
     -fix Function type use in with next
     -fix function return type in validation and image-processing 
-
--last test on the app
-    -run build, test, lint, prettier
