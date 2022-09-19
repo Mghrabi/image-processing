@@ -24,6 +24,18 @@ export const checkOrCreateImageFile = async (
     return next();
   }
 
+  //check if thumb (folder) exist
+  const thumbFolder =  path.join(
+    __dirname,
+    "../../assets/thumb"
+  );
+
+  console.log('folder', thumbFolder)
+  if(!fs.existsSync(thumbFolder))
+  {
+    fs.mkdirSync(thumbFolder)
+  }
+
   //create new file version
   const created = await createImageFile(
     thumbPath,
