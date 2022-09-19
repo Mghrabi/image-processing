@@ -30,7 +30,7 @@ export const checkOrCreateImageFile = async (
     "../../assets/thumb"
   );
 
-  console.log('folder', thumbFolder)
+  // console.log('folder', thumbFolder)
   if(!fs.existsSync(thumbFolder))
   {
     fs.mkdirSync(thumbFolder)
