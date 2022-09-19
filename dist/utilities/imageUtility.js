@@ -27,6 +27,12 @@ const checkOrCreateImageFile = (req, res, next) => __awaiter(void 0, void 0, voi
     if (fs_1.default.existsSync(thumbPath)) {
         return next();
     }
+    //check if thumb (folder) exist
+    const thumbFolder = path_1.default.join(__dirname, "../../assets/thumb");
+    console.log('folder', thumbFolder);
+    if (!fs_1.default.existsSync(thumbFolder)) {
+        fs_1.default.mkdirSync(thumbFolder);
+    }
     //create new file version
     const created = yield (0, exports.createImageFile)(thumbPath, fileName, width, height);
     if (created) {
