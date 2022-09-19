@@ -3,25 +3,15 @@ import path from "path";
 import { checkOrCreateImageFile } from "./utilities/image.utility";
 import { validateParamsFunc } from "./utilities/validation.utility";
 
-// app.set("view engine", "pug");
-// console.log(path.join(__dirname)),
-// sharp(path.join(__dirname, "../assets/original/ahmed.jpg"))
-//   .resize(200, 100)
-//   .toFile(
-//     path.join(__dirname, "../assets/thumb/ahmed100100.jpg"),
-//     (err, info) => {
-//       console.log(err);
-//     }
-//   );
 
 const app = Express();
 app.get(
   "/",
   validateParamsFunc,
   checkOrCreateImageFile,
-  (req: Express.Request, res: Express.Response, next: any) => {
-    const { fileName, width, height } = req.query;
+  (req: Express.Request, res: Express.Response) => {
 
+    const { fileName, width, height } = req.query;
     const thumbPath = path.join(
       __dirname,
       "../assets/thumb/",
@@ -30,12 +20,8 @@ app.get(
         parseInt(height as string) +
         ".jpg"
     );
-    // next();
-
-    
-    // res.send('success');
-    console.log("done");
-    return res.sendFile(thumbPath);
+    // console.log("done");
+    return res.status(200).sendFile(thumbPath);
   }
 );
 
@@ -43,3 +29,5 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log("server is on port ", PORT);
 });
+
+export default app;

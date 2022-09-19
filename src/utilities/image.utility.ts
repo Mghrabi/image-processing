@@ -17,8 +17,7 @@ export const checkOrCreateImageFile =  async(
       parseInt(height as string) +
       ".jpg"
   );
-  console.log("thumbPath", thumbPath);
-
+  // console.log("thumbPath", thumbPath);
 
   //check if file exists
   if (fs.existsSync(thumbPath)) {
@@ -32,10 +31,11 @@ export const checkOrCreateImageFile =  async(
     await sharp(path.join(__dirname, '../../assets/original', fileName + ".jpg"))
       .resize(parseInt(width as string), parseInt(height as string))
       .toFile(thumbPath);
+      
     return next();
 
   } catch (err) {
-    console.log("err while image processing");
-    return res.send("Error while processing the iamge");
+    // console.log("err while image processing");
+    return res.status(500).send("Error while processing the iamge");
   }
 };
