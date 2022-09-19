@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
-export const checkOrCreateImageFile =  (
+export const checkOrCreateImageFile =  async(
   req: Express.Request,
   res: Express.Response,
   next: Function
@@ -29,12 +29,9 @@ export const checkOrCreateImageFile =  (
   //create new file version
   try {
     fs.appendFileSync(thumbPath, "");
-    sharp(path.join(__dirname, '../../assets/original', fileName + ".jpg"))
+    await sharp(path.join(__dirname, '../../assets/original', fileName + ".jpg"))
       .resize(parseInt(width as string), parseInt(height as string))
-      .toFile(thumbPath, (err) => {
-        console.log("err in sharp", err);
-        return res.send("Error while processing the iamge");
-      });
+      .toFile(thumbPath);
     return next();
 
   } catch (err) {
