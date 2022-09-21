@@ -1,12 +1,12 @@
-import Express from "express";
+import Express, {NextFunction, Response, Request} from "express";
 import path from "path";
 import fs from "fs";
 
 export const validateParamsFunc = (
-  req: Express.Request,
+  req: Request,
   res: Express.Response,
-  next: () => void 
-) => {
+  next: NextFunction 
+) : Response | void => {
   const { fileName, width, height } = req.query;
   //checking their existance
   if (!fileName || !width || !height) {
