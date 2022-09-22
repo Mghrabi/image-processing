@@ -15,8 +15,8 @@
 
 ## Notes
 * src/utilities contain two middleware function files:
-*    validation Utility file to validate the params of the url
-*    image Utility file to create or check the existence of the specified version of the image
+* ---validation Utility file to validate the params of the url
+* ---image Utility file to create or check the existence of the specified version of the image
 
 
 
