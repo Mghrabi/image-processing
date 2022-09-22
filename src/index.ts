@@ -1,14 +1,15 @@
-import Express from "express";
+import Express, { Response, Request} from "express";
 import path from "path";
 import { checkOrCreateImageFile } from "./utilities/imageUtility";
 import { validateParamsFunc } from "./utilities/validationUtility";
 
 const app = Express();
+
 app.get(
   "/",
   validateParamsFunc,
   checkOrCreateImageFile,
-  (req: Express.Request, res: Express.Response) => {
+  (req: Request, res: Response): void => {
     const { fileName, width, height } = req.query;
     const thumbPath = path.join(
       __dirname,

@@ -1,13 +1,13 @@
-import Express from "express";
+import  { NextFunction , Request, Response} from "express";
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
 export const checkOrCreateImageFile = async (
-  req: Express.Request,
-  res: Express.Response,
-  next: () => void 
-): Promise<unknown> => {
+  req: Request,
+  res: Response,
+  next: NextFunction 
+): Promise<Response | void> => {
   const { fileName, width, height } = req.query;
   const thumbPath = path.join(
     __dirname,
