@@ -11,6 +11,7 @@
 ## Only one endpoint:
 * GET http://localhost:3000/?fileName=value&width=value&height=value
 * Example: http://localhost:3000/?fileName=fjord&width=300&height=150
+* src/index.ts is the file where server runs
 
 
 ## Notes
