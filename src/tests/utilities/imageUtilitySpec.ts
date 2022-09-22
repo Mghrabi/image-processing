@@ -1,8 +1,8 @@
 import path from "path";
 import { createImageFile } from "../../utilities/imageUtility";
 
-describe("image processing test", () => {
-  it("createImageFile func should return true", async () => {
+describe("image processing test", (): void => {
+  it("createImageFile func should return true", async (): Promise<void> => {
     const fileName = "fjord";
     const width = "120";
     const height = "120";
